@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tooltip</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div data-tooltip='我是一段提示'>鼠标放我上面试试看</div>
+  <style contenteditable class="textarea">
+    div {
+      width: 200px;
+      margin: 100px auto;
+      padding: 6px 12px;
+      background-color: #ddd;
+      color: #555;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    [data-tooltip] {
+      position: relative;
+    }
+
+    [data-tooltip]::before {
+      content: attr(data-tooltip);
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 5px;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #313131;
+      white-space: nowrap;
+      bottom: calc(100% + 5px);
+    }
+
+    [data-tooltip]:hover::before {
+      display: block;
+    }
+  </style>
+</body>
+
+</html>

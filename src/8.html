@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>边框跑马灯</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div></div>
+  <style contenteditable class="textarea">
+    div {
+      position: relative;
+      margin: 50px auto;
+      width: 190px;
+      height: 190px;
+      background-color: #eee;
+    }
+
+    div::before,
+    div::after {
+      position: absolute;
+      left: -5px;
+      top: -5px;
+      right: -5px;
+      bottom: -5px;
+      content: '';
+      display: block;
+      border: 5px solid lightblue;
+    }
+
+    div::before {
+      animation: run 5s linear infinite;
+    }
+
+    div::after {
+      animation: run 5s linear infinite -3s;
+    }
+
+    @keyframes run {
+
+      0%,
+      100% {
+        clip: rect(0, 200px, 5px, 0);
+      }
+
+      25% {
+        clip: rect(0, 200px, 200px, 195px);
+      }
+
+      50% {
+        clip: rect(195px, 200px, 200px, 0);
+      }
+
+      75% {
+        clip: rect(0, 5px, 200px, 0px);
+      }
+    }
+  </style>
+</body>
+
+</html>

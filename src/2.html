@@ -6,40 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>表格美化</title>
-  <style>
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    table{
-      border-collapse: collapse;
-      width: 100%;
-      color: #555;
-      font-size: 14px;
-      table-layout: fixed;
-    }
-    th, td {
-      padding: 6px 12px;
-    }
-    tr:nth-child(odd) {
-      background-color: #eee;
-    }
-    tr:first-child {
-      background-color: lightyellow;
-    }
-    tr {
-      transition: background-color 1s;
-    }
-    tr:not(:first-child):hover {
-      background-color: lightgreen;
-    }
-  </style>
+  <link rel="stylesheet" href="global.css">
 </head>
 
 <body>
   <table>
     <colgroup>
-      <col span="3" align="center"></col>
-      <col style="width:460px;"></col>
+      <col span="3" align="center">
+      </col>
+      <col style="width:460px;">
+      </col>
     </colgroup>
     <tr>
       <th>等级</th>
@@ -72,6 +48,43 @@
       <td>提交、维护标签，掘金共建者证书</td>
     </tr>
   </table>
+  <style contenteditable class="textarea">
+    table,
+    th,
+    td {
+      border: 1px solid #ddd;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      color: #555;
+      font-size: 14px;
+      table-layout: fixed;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      padding: 6px 12px;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #eee;
+    }
+
+    tr:first-child {
+      background-color: lightyellow;
+    }
+
+    tr {
+      transition: background-color 1s;
+    }
+
+    tr:not(:first-child):hover {
+      background-color: lightgreen;
+    }
+  </style>
 </body>
 
 </html>
