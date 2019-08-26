@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>打点...</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div class="demo">加载中</div>
+  <style contenteditable class="textarea">
+    div {
+      font-size: 18px;
+      height: 30px;
+      overflow: hidden;
+    }
+
+    div::after {
+      display: inline-block;
+      content: '...\A..\A';
+      white-space: pre-wrap;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+</body>
+
+</html>

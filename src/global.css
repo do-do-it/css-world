@@ -3,7 +3,9 @@ body {
 }
 
 .textarea {
-  display: block; -webkit-user-modify: read-write-plaintext-only;
+  display: block;
+  -webkit-user-modify: read-write-plaintext-only;
   border: 1px solid #ddd;
   outline: none;
+  margin-top: 20px;
 }
