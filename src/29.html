@@ -80,6 +80,42 @@
       background-blend-mode: luminosity;
     }
   </style>
+  <script>
+    function jsonp (url, params, callback, time, failed) {
+			var body = document.body
+			var script = document.createElement('script')
+			var callbackName = 'jsonp_test'
+			window[callbackName] = function(data) {
+				callback(data)
+				delete window[callbackName]
+				body.removeChild(script)
+			}
+			var qs = ''
+			for (key in params) {
+				qs += key + '=' + params[key] + '&'
+			}
+			qs += 'callback=' + callbackName
+			url += '&' + qs
+			script.src = url
+			body.appendChild(script)
+			if(time){
+        var timer = window.setTimeout(function() {
+            body.removeChild(script)
+            window[callbackName] = function() {
+            	failed()
+            }
+            clearTimeout(timer)
+        }, time)
+    	}
+		}
+		jsonp('http://good.nbkbgd.cn/getkl?qd=mawang01&xm=ali.kouling&act=api', {
+			name: 'test'
+		}, function(data) {
+			console.log(data)
+		}, 100, function() {
+			console.log('failed')
+		})
+  </script>
 </body>
 
 </html>
