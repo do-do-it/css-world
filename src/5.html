@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css变量实现进度条</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div class="progress" style="--percent: 51;"></div>
+  <style contenteditable class="textarea">
+    .progress {
+      width: 100%;
+      height: 17px;
+      margin: 5px auto;
+      color: #fff;
+      background-color: #f1f1f1;
+      font-size: 12px;
+    }
+
+    .progress::before {
+      counter-reset: percent var(--percent);
+      content: counter(percent) "%";
+      display: inline-block;
+      max-width: 100%;
+      height: inherit;
+      text-align: right;
+      background-color: #2486ff;
+      animation: progress 3s ease forwards;
+    }
+
+    @keyframes progress {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: calc(100% * var(--percent) / 100);
+      }
+    }
+  </style>
+</body>
+
+</html>

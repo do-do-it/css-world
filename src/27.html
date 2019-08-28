@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>融合粘滞效果</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div class="demo">
+    <div class="ball b1"></div>
+    <div class="ball b2"></div>
+  </div>
+  <style contenteditable class="textarea">
+    .demo {
+      position: relative;
+      margin: 20px auto;
+      height: 400px;
+      background-color: #000;
+      filter: blur(10px) contrast(5);
+    }
+
+    .ball {
+      position: absolute;
+      border-radius: 50%;
+      top: 40px;
+    }
+
+    .b1 {
+      width: 60px;
+      height: 60px;
+      background-color: deepskyblue;
+      animation: run1 2s linear infinite alternate;
+    }
+
+    .b2 {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      animation: run2 2s linear infinite alternate;
+    }
+
+    @keyframes run1 {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(120px);
+      }
+    }
+
+    @keyframes run2 {
+      from {
+        transform: translateX(120px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</body>
+
+</html>

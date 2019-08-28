@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>滚动指示器</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div class="demo"></div>
+  <section>
+    <style contenteditable class="textarea">
+      body {
+        position: relative;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .demo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right top, teal 50%, white 50%);
+        background-size: calc(100% + 20px) calc(100% - 100vh + 5px);
+        z-index: 1;
+        pointer-events: none;
+        /* 兼容性不太好 */
+        mix-blend-mode: darken;
+      }
+
+      .demo::after {
+        content: '';
+        position: fixed;
+        top: 5px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        z-index: 1;
+      }
+
+      section {
+        height: 1000px;
+      }
+
+      .textarea {
+        margin: 0;
+      }
+    </style>
+  </section>
+</body>
+
+</html>

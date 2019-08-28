@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>饼图</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div class="demo" style="--percent: 0;">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <style contenteditable class="textarea">
+    /* CSS的clip属性只在绝对定位的元素上才会生效 */
+
+    .demo {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      background-color: white;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .left,
+    .right {
+      width: 50%;
+      height: 100%;
+      float: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .left::before,
+    .right::before,
+    .right::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: teal;
+    }
+
+    .left::before {
+      left: 100%;
+      transform-origin: left;
+      transform: rotate(calc(3.6deg * (var(--percent) - 50)));
+      opacity: calc(99999 * (var(--percent) - 50));
+    }
+
+    .right::before {
+      right: 100%;
+      transform-origin: right;
+      transform: rotate(calc(3.6deg * var(--percent)));
+    }
+
+    .right::after {
+      opacity: calc(99999 * (var(--percent) - 50));
+    }
+  </style>
+  <script contenteditable class="textarea">
+    window.onload = function () {
+      var a = document.querySelector('.demo')
+      var percent = 0
+      function run() {
+        a.style.setProperty('--percent', ++percent)
+        if (percent < 90) {
+          requestAnimationFrame(run)
+        }
+      }
+      run()
+    }
+  </script>
+</body>
+
+</html>

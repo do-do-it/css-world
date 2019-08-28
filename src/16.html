@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定宽高比</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+  <div></div>
+  <style contenteditable class="textarea">
+    div {
+      width: 100px;
+      margin: 20px auto;
+      background-color: lightblue;
+      transition: width 3s;
+      display: flex;
+    }
+
+    div:hover {
+      width: 400px;
+    }
+
+    div::after {
+      content: '';
+      padding-bottom: 100%;
+    }
+  </style>
+</body>
+
+</html>
