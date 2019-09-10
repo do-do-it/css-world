@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>弹球效果</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <section><div></div></section>
+  <style contenteditable class="textarea">
+    section {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #555;
+      margin: 20px auto;
+    }
+
+    div {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: lightcoral;
+      animation: x 2s linear infinite alternate, y 2.2s linear infinite alternate;
+    }
+
+    @keyframes x {
+      from {
+        left: 0;
+      }
+      to {
+        left: calc(100% - 30px)
+      }
+    }
+
+    @keyframes y {
+      from {
+        top: 0;
+      }
+      to {
+        top: calc(100% - 30px)
+      }
+    }
+  </style>
+</body>
+
+</html>

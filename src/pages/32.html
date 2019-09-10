@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单验证</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <form action="/api/register" method="post" onsubmit="return validate(this)">
+    <div>
+      <label for="tel">手机号</label>
+      <input type="tel" name="tel" id="tel" required pattern="^1\d{10}$">
+    </div>
+    <button type="submit">提交</button>
+  </form>
+  <style contenteditable class="textarea">
+    form {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      color: #555;
+    }
+
+    div {
+      margin-bottom: 10px;
+      display: flex;
+    }
+
+    label {
+      width: 80px;
+      padding: 10px;
+      text-align-last: justify;
+    }
+
+    input {
+      flex: 1;
+      outline: none;
+      border: 1px solid #eee;
+      padding: 10px;
+    }
+
+    button {
+      margin-left: 100px;
+      outline: none;
+      border: 1px solid #eee;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function validate(thisForm) {
+      console.log(thisForm.tel.value)
+      console.log(thisForm.action)
+      return false
+    }
+    document.querySelector('input').addEventListener('invalid', function(e) {
+      e.preventDefault()
+      console.log(e.target.validity)
+      if (!e.target.validity.valid) {
+        alert('表单验证未通过')
+      }
+    })
+  </script>
+</body>
+
+</html>

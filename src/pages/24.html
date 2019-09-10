@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>斜纹进度条</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <div class="demo"></div>
+  <style contenteditable class="textarea">
+    .demo {
+      padding-right: 30%;
+      height: calc(1.4142 * 20px);
+      background: repeating-linear-gradient(45deg, teal, teal 10px, transparent 10px, transparent 20px, teal 20px);
+      background-clip: content-box;
+      animation: run 1s linear infinite;
+      position: relative;
+    }
+
+    .demo::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, .5), hsla(0, 0%, 100%, .5), rgba(0, 0, 0, .5));
+    }
+
+    @keyframes run {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 calc(-1 * 1.4142 * 40px);
+      }
+    }
+  </style>
+</body>
+
+</html>

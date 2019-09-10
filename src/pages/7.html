@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>海浪</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <div></div>
+  <style contenteditable class="textarea">
+    div {
+      position: relative;
+      margin: 50px auto;
+      width: 200px;
+      height: 200px;
+      background-color: #5291e0;
+      overflow: hidden;
+    }
+
+    div::before, div::after {
+      content: '';
+      position: absolute;
+      width: 500%;
+      height:500%;
+      background-color: #fff;
+      left: 50%;
+      transform: translate(-50%);
+      animation: waveMove 10s linear infinite, waveUp 50s ease forwards;
+    }
+
+    div::before {
+      border-radius: 45%;
+      bottom: 20%;
+    }
+
+    div::after {
+      border-radius: 47%;
+      opacity: 0.7;
+      bottom: 15%;
+    }
+
+    @keyframes waveMove {
+      to {
+        transform: translate(-50%) rotate(360deg)
+      }
+    }
+
+    @keyframes waveUp {
+      to {
+        bottom: 100%;
+      }
+    }
+  </style>
+</body>
+
+</html>
