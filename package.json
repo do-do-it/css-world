@@ -1,0 +1,15 @@
+{
+  "name": "css-world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:do-do-it/css-world.git",
+  "author": "<zm@tuia.cn>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel",
+    "build": "node app.js"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  }
+}

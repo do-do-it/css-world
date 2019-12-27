@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>盒子模型</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <div class="container demo1">
+    <div>1</div>
+  </div>
+  <div class="container demo2">
+    <div>2</div>
+  </div>
+  <div class="container demo3">
+    <div>3</div>
+  </div>
+  <div class="container demo4">
+    <div>4</div>
+  </div>
+  <div class="container demo5">
+    <div>5</div>
+  </div>
+  <div class="clear"></div>
+  <div class="container demo6">
+    <div>6</div>
+  </div>
+  <style contenteditable class="textarea">
+    .clear {
+      margin-bottom: 10px;
+    }
+    .container {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 10px;
+      background-color: #eee;
+    }
+    .container > div {
+      background-color: lightslategray;
+    }
+    /* 1 */
+    .demo1 {
+      position: relative;
+    }
+    .demo1 > div {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    /* 2 */
+    .demo2 {
+      position: relative;
+    }
+    .demo2 > div {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    /* 3 */
+    .demo3 {
+      position: relative;
+    }
+    .demo3 > div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    /* 4 */
+    .demo4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo4 > div {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    /* 5 宽度100%不再生效 */
+    .demo5 {
+      width: 100vw;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .demo5 > div {
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    /* 6 */
+    .demo6 {
+      text-align: center;
+    }
+    .demo6 > div {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    .demo6::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  </style>
+</body>
+
+</html>
