@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>聚光灯效果</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="text" data-text="有请帅哥美女善良登场">有请帅哥美女善良登场</div>
+  </div>
+  <style contenteditable class="textarea">
+    html,
+    body {
+      height: 100%;
+    }
+
+    #app {
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #444444;
+    }
+
+    .text {
+      position: relative;
+      font-size: 36px;
+      color: #fff;
+    }
+
+    .text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: transparent;
+      font-size: 36px;
+      /* 核心代码 椭圆形 */
+      clip-path: ellipse(40px 40px at 0% 50%);
+      animation: spotlight 3s infinite;
+      background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584419932906&di=10db90ce0c808423d61b3cc1ce9aecca&imgtype=0&src=http%3A%2F%2Fwww.woippt.com%2Fd%2Ffile%2Fbigpic%2F2019-11-22%2F20%2F20162542194.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    @keyframes spotlight {
+      0% {
+        clip-path: ellipse(80px 80px at 0% 50%);
+      }
+      50% {
+        clip-path: ellipse(80px 80px at 100% 50%);
+      }
+      100% {
+        clip-path: ellipse(80px 80px at 0% 50%);
+      }
+    }
+
+  </style>
+</body>
+
+</html>
