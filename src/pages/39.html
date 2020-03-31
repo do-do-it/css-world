@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css3实现粒子</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <h1>particle 点击屏幕</h1>
+  <script>
+
+    function arrRandom(arr) {
+      return Math.random() * arr.length | 0
+    }
+
+    /**
+     * 默认配置
+     */
+    const _options = {
+      count: 50,
+      type: 'color',
+      size: 20,
+      radius: 200,
+      duration: 1,
+      types: ['#444111', '#f3f3f3', '#eee', '#999']
+    }
+
+    /**
+     * 粒子类
+     */
+    class Particle {
+
+      constructor(options) {
+        this.options = Object.assign(_options, options)
+
+        this._init()
+      }
+
+      start(target) {
+        this._reset()
+        this.setTarget(target)
+        if (this._timer) clearTimeout(this._timer)
+
+        this._timer = setTimeout(() => {
+          this.particles.forEach(particle => {
+            const v = (Math.random() * 360 | 0) / 180 * Math.PI
+            const vx = this.options.radius * Math.cos(v)
+            const vy = this.options.radius * Math.sin(v)
+            particle.style.transform = `translate3d(${vx}px, ${vy}px, 0px) scale(0)`
+          })
+        }, 20)
+      }
+
+      _reset() {
+        this._decorateParticles(this.particles)
+      }
+
+      setTarget(target) {
+        this.container.style.left = target.x + 'px'
+        this.container.style.top = target.y + 'px'
+        // 把容器放入页面
+        document.body.appendChild(this.container)
+      }
+
+      _init() {
+        // 创建粒子组
+        this.particles = this._createParticles(this.options.count)
+        // 给粒子加效果
+        this._decorateParticles(this.particles)
+        // 粒子容器
+        this.container = this._createContainer()
+        // 把粒子放入容器
+        this._addChild(this.container, this.particles)
+      }
+
+      _decorateParticles(particles) {
+        particles.forEach((particle, i) => {
+          particle.style.position = 'absolute'
+          particle.style.width = this.options.size + 'px'
+          particle.style.height = this.options.size + 'px'
+          particle.style.borderRadius = '50%'
+          particle.style.transform = 'translate3d(0px, 0px, 0px) scale(1)'
+          particle.style.transition = `transform ${this.options.duration}s ${i / 100}s`
+          particle.style.backgroundColor = this.options.types[arrRandom(this.options.types)]
+        })
+      }
+
+      _addChild(container, particles) {
+        particles.forEach(particle => {
+          container.appendChild(particle)
+        })
+      }
+
+      _createContainer() {
+        const con = document.createElement('div')
+        con.style.position = 'fixed'
+        return con
+      }
+
+      /**
+       * 生成一波粒子
+       * @param {Number} count 粒子数量
+       */
+      _createParticles(count) {
+        let particles = []
+        for (let i = 0; i < count; i++) {
+          particles.push(document.createElement('div'))
+        }
+        return particles
+      }
+    }
+
+    var p = new Particle()
+    console.log(p)
+
+    window.addEventListener('touchstart', (e) => {
+      p.start({
+        x: e.pageX,
+        y: e.pageY
+      })
+    })
+  </script>
+</body>
+
+</html>
