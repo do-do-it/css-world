@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>按钮水波</title>
+  <link rel="stylesheet" href="../global.css">
+</head>
+
+<body>
+  <button>click</button>
+  <style contenteditable class="textarea">
+    button {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 20px;
+      width: 100px;
+      text-align: center;
+      background-color: #111;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    button::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 100%;
+      background-color: #fff;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+      opacity: 0.3;
+      transition: all 1s;
+    }
+
+    button:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+
+    button:focus {
+      outline: none;
+    }
+  </style>
+</body>
+
+</html>
